@@ -68,9 +68,7 @@ class AnchorYOLO(nn.Module):
                               ])                 
 
         # --------- Network Initialization ----------
-        if trainable:
-            # init bias
-            self.init_yolo()
+        self.init_yolo()
 
 
     def init_yolo(self): 
