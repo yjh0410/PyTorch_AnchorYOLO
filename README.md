@@ -48,7 +48,7 @@ Main results on COCO-val:
 
 | Model         |  Scale  | FPS<sup><br>2080ti |  GFLOPs | Params(M) |    AP    |    AP50    |  Weight  |
 |---------------|---------|--------------------|---------|-----------|----------|------------|----------|
-| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  43.4    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/weight/yolo_anchor_43.4_63.6.pth) |
+| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  43.4    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/yolo_anchor_weight/yolo_anchor_43.4_63.6.pth) |
 
 New AP results and weight files are coming ...
 
