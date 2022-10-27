@@ -239,7 +239,7 @@ def run():
 
     # load trained weight
     model = load_weight(model=model, path_to_ckpt=args.weight)
-    model = model.to(device).eval()
+    model.to(device).eval()
 
 
     # transform

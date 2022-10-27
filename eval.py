@@ -119,7 +119,7 @@ if __name__ == '__main__':
 
     # load trained weight
     model = load_weight(model=model, path_to_ckpt=args.weight)
-    model = model.to(device).eval()
+    model.to(device).eval()
 
     # TTA
     test_aug = TestTimeAugmentation(num_classes=num_classes) if args.test_aug else None
