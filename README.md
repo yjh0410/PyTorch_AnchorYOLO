@@ -1,24 +1,26 @@
 # AnchorYOLO
-Anchor-based YOLO detector.
+这个AnchorYOLO项目是配合我在知乎专栏上连载的《YOLO入门教程》而创建的：
 
-# Requirements
-- We recommend you to use Anaconda to create a conda environment:
+https://zhuanlan.zhihu.com/c_1364967262269693952
+
+感兴趣的小伙伴可以配合着上面的专栏来一起学习，入门目标检测。
+
+# 配置环境
+- 我们建议使用anaconda来创建虚拟环境:
 ```Shell
 conda create -n yolo python=3.6
 ```
 
-- Then, activate the environment:
+- 然后，激活虚拟环境:
 ```Shell
 conda activate yolo
 ```
 
-- Requirements:
+- 配置环境:
+运行下方的命令即可一键配置相关的深度学习环境：
 ```Shell
 pip install -r requirements.txt 
 ```
-
-We suggest that PyTorch should be higher than 1.9.0 and Torchvision should be higher than 0.10.3. 
-At least, please make sure your torch is version 1.x.
 
 # Tricks
 - [x] [Mosaic Augmentation](https://github.com/yjh0410/FreeYOLO/blob/master/dataset/transforms.py)
@@ -45,8 +47,8 @@ At least, please make sure your torch is version 1.x.
 Main results on COCO-val:
 
 | Model         |  Scale  | FPS<sup><br>2080ti |  GFLOPs | Params(M) |    AP    |    AP50    |  Weight  |
-|---------------|---------|--------------------|---------|---------|----------|------------|----------|
-| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |      |        | [github](https://github.com/yjh0410/FreeYOLO/releases/download/weight/yolo_anchor_43.4_63.6.pth) |
+|---------------|---------|--------------------|---------|-----------|----------|------------|----------|
+| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  43.4    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/weight/yolo_anchor_43.4_63.6.pth) |
 
 New AP results and weight files are coming ...
 
