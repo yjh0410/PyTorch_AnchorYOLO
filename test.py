@@ -3,12 +3,14 @@ import cv2
 import os
 import time
 import numpy as np
+from copy import deepcopy
 import torch
 
 from dataset.voc import VOC_CLASSES, VOCDetection
 from dataset.coco import coco_class_index, coco_class_labels, COCODataset
 from dataset.transforms import ValTransforms
 from utils.misc import load_weight, TestTimeAugmentation
+from utils.com_flops_params import FLOPs_and_Params
 from utils import fuse_conv_bn
 
 from config import build_config
@@ -215,6 +217,16 @@ if __name__ == '__main__':
     # load trained weight
     model = load_weight(model=model, path_to_ckpt=args.weight)
     model.to(device).eval()
+
+    # compute FLOPs and Params
+    model_copy = deepcopy(model)
+    model_copy.trainable = False
+    model_copy.eval()
+    FLOPs_and_Params(
+        model=model_copy,
+        img_size=args.img_size, 
+        device=device)
+    del model_copy
 
     # fuse conv bn
     if args.fuse_conv_bn:
