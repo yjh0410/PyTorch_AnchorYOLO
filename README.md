@@ -22,13 +22,13 @@ conda activate yolo
 pip install -r requirements.txt 
 ```
 
-# Tricks
+# 训练技巧
 - [x] [Mosaic Augmentation](https://github.com/yjh0410/FreeYOLO/blob/master/dataset/transforms.py)
 - [x] [Mixup Augmentation](https://github.com/yjh0410/FreeYOLO/blob/master/dataset/transforms.py)
 - [x] Multi scale training
 - [x] Cosine Annealing Schedule
 
-# Training Configuration
+# 训练配置
 |   Configuration         |                      |
 |-------------------------|----------------------|
 | Batch Size (bs)         | 16                   |
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 | Mixup                   | True                 |
 
 
-# Experiments
+# 实验结果
 ## COCO
 
 Main results on COCO-val:
@@ -50,25 +50,26 @@ Main results on COCO-val:
 |---------------|---------|--------------------|---------|-----------|----------|------------|----------|
 | AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  43.4    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/yolo_anchor_weight/yolo_anchor_43.4_63.6.pth) |
 
-New AP results and weight files are coming ...
+# 训练
+## 单GPU训练
+一键运行本项目提供的bash文件：
 
-# Train
-## Single GPU
 ```Shell
 sh train.sh
 ```
 
-You can change the configurations of `train.sh`, according to your own situation.
+请根据自己的情况去修改```train.sh```文件中的配置。
 
-## Multi GPUs
+## 多PGU训练
+一键运行本项目提供的bash文件：
+
 ```Shell
 sh train_ddp.sh
 ```
 
-You can change the configurations of `train_ddp.sh`, according to your own situation.
+请根据自己的情况去修改```train.sh```文件中的配置。
 
-**In the event of a training interruption**, you can pass `--resume` the latest training
-weight path (`None` by default) to resume training. For example:
+**当遇到训练被终端的情况时**, 你可以给 `--resume` 传入最新的权重（默认为None），如下:
 
 ```Shell
 python train.py \
@@ -81,9 +82,11 @@ python train.py \
         --resume weights/coco/yolo_anchor/yolo_anchor_epoch_151_39.24.pth
 ```
 
-Then, training will continue from 151 epoch.
+然后，训练会从151 epoch继续。
 
-# Test
+# 测试
+你可以参考下方的命令来测试模型在数据集上的检测性能，将会看到检测结果的可视化图像。
+
 ```Shell
 python test.py -d coco \
                --cuda \
@@ -94,7 +97,9 @@ python test.py -d coco \
                --show
 ```
 
-# Evaluation
+# 验证
+你可以参考下方的命令来测试模型在数据集上的AP指标。
+
 ```Shell
 python eval.py -d coco-val \
                --cuda \
@@ -105,9 +110,8 @@ python eval.py -d coco-val \
                --show
 ```
 
-
 # Demo
-I have provide some images in `data/demo/images/`, so you can run following command to run a demo:
+本项目提供了一些图片，在 `data/demo/images/`文件夹中, 你可以运行下面的命令来检测本地的图片:
 
 ```Shell
 python demo.py --mode image \
@@ -118,7 +122,9 @@ python demo.py --mode image \
                --weight path/to/weight
 ```
 
-If you want run a demo of streaming video detection, you need to set `--mode` to `video`, and give the path to video `--path_to_vid`。
+你可以通过修改`--path_to_img`的参数来指向你自己的图片所在文件夹。
+
+如果你想检测本地的视频，可以给参数`--mode`传入`video`，并给参数`--path_to_vid`传入视频的路径：
 
 ```Shell
 python demo.py --mode video \
@@ -129,7 +135,7 @@ python demo.py --mode video \
                --weight path/to/weight
 ```
 
-If you want run video detection with your camera, you need to set `--mode` to `camera`。
+如果你想检测用外部的摄像头来实时运行模型，可以给参数`--mode`传入`camera`：
 
 ```Shell
 python demo.py --mode camera \
