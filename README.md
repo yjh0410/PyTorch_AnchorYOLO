@@ -48,10 +48,11 @@ Main results on COCO-val:
 
 | Model         |  Scale  | FPS<sup><br>2080ti |  GFLOPs | Params(M) |    AP    |    AP50    |  Weight  |
 |---------------|---------|--------------------|---------|-----------|----------|------------|----------|
-| AnchorYOLO    |  320    |                  |    |   62.0    |  43.4    |   63.6     | - |
-| AnchorYOLO    |  416    |                  |    |   62.0    |  43.4    |   63.6     | - |
-| AnchorYOLO    |  512    |                  |    |   62.0    |  43.4    |   63.6     | - |
-| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  43.4    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/yolo_anchor_weight/yolo_anchor_43.4_63.6.pth) |
+| AnchorYOLO    |  320    |  --                |  42.3   |   62.0    |  39.8    |   58.6     | - |
+| AnchorYOLO    |  416    |  --                |  71.5   |   62.0    |  42.8    |   62.1     | - |
+| AnchorYOLO    |  512    |  --                |  108.3  |   62.0    |  44.6    |   64.5     | - |
+| AnchorYOLO    |  608    |  --                |  152.7  |   62.0    |  45.5    |   66.0     | - |
+| AnchorYOLO    |  640    |  45                |  168.8  |   62.0    |  45.6    |   63.6     | [github](https://github.com/yjh0410/PyTorch_AnchorYOLO/releases/download/yolo_anchor_weight/yolo_anchor_45.6.pth) |
 
 # 训练
 ## 单GPU训练
